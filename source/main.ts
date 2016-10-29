@@ -10,7 +10,10 @@ namespace webngen.identity {
 
 
             var mod = angular.module("webngen.identity", []);
-
+            //var cfg: webngen.identity.models.IdentityConfig = {
+            //    identityApi:"api.webngen.net/identity"
+            //};
+            //mod.constant('appConfig', cfg);
 
             mod.service('webngenIdAuthService', services.AuthenticationService);
             mod.service('webngenIdDiscoService', services.IdentityDiscoveryService);

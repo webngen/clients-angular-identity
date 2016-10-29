@@ -2,9 +2,10 @@
 namespace webngen.identity.services {
 
     export class IdentityDiscoveryService implements IIdentityDiscoveryService {
-        static $inject = ['$http', '$q'];
+        static $inject = ['$http', '$q', ''];
         private static RelationTokens = "tokens";
         private _discoveryResource: webngen.identity.models.IdentityDiscoveryResource;
+        private _config: models.IdentityConfig = { identityApi="https://api.webngen.net/identity" };
 
         constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
 
@@ -47,9 +48,14 @@ namespace webngen.identity.services {
 
             return deferred.promise;
         }
+
+        public Configure = (config: models.IdentityConfig) => {
+            this._config = config;
+        }
     }
 
     export interface IIdentityDiscoveryService {
         TokenUri: ng.IPromise<string>;
+        Configure(options: models.IdentityConfig);
     }
 }

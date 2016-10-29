@@ -103,10 +103,11 @@ var webngen;
         var services;
         (function (services) {
             var IdentityDiscoveryService = (function () {
-                function IdentityDiscoveryService($http, $q) {
+                function IdentityDiscoveryService($http, $q, config) {
                     var _this = this;
                     this.$http = $http;
                     this.$q = $q;
+                    this.config = config;
                     this.Discover = function () {
                         var deferred = _this.$q.defer();
                         var self = _this;
@@ -143,7 +144,7 @@ var webngen;
                     enumerable: true,
                     configurable: true
                 });
-                IdentityDiscoveryService.$inject = ['$http', '$q'];
+                IdentityDiscoveryService.$inject = ['$http', '$q', ''];
                 IdentityDiscoveryService.RelationTokens = "tokens";
                 return IdentityDiscoveryService;
             }());
@@ -164,6 +165,10 @@ var webngen;
             }
             Bootstrapper.prototype.init = function () {
                 var mod = angular.module("webngen.identity", []);
+                //var cfg: webngen.identity.models.IdentityConfig = {
+                //    identityApi:"api.webngen.net/identity"
+                //};
+                //mod.constant('appConfig', cfg);
                 mod.service('webngenIdAuthService', identity.services.AuthenticationService);
                 mod.service('webngenIdDiscoService', identity.services.IdentityDiscoveryService);
             };

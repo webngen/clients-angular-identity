@@ -44,6 +44,11 @@ declare namespace webngen.identity.models {
         TokenType: string;
     }
 }
+declare namespace webngen.identity.models {
+    interface IdentityConfig {
+        identityApi: string;
+    }
+}
 declare namespace webngen.identity.services {
     class AuthenticationService implements IAuthenticationService {
         private $http;
@@ -68,10 +73,11 @@ declare namespace webngen.identity.services {
     class IdentityDiscoveryService implements IIdentityDiscoveryService {
         private $http;
         private $q;
+        private config;
         static $inject: string[];
         private static RelationTokens;
         private _discoveryResource;
-        constructor($http: ng.IHttpService, $q: ng.IQService);
+        constructor($http: ng.IHttpService, $q: ng.IQService, config: models.IdentityConfig);
         private Discover;
         TokenUri: angular.IPromise<string>;
         private FindLinkUrl;
