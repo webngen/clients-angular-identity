@@ -1,0 +1,19 @@
+{
+    "name": "webngen-clients-angular-identity",
+    "version": "0.1.0",
+    "description": "Angular client library for Platform Identity Api",
+    "main": "dist/identity.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/webngen/clients-angular-identity.git"
+    },
+    "author": "Scott Florisson",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/webngen/clients-angular-identity/issues"
+    },
+    "homepage": "https://github.com/webngen/clients-angular-identity#readme"
+}

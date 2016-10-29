@@ -1,0 +1,30 @@
+{
+    "name": "webngen-clients-angular-identity",
+    "homepage": "https://github.com/webngen/clients-angular-identity",
+    "description": "Angular client library for Platform Identity Api",
+    "main": "dist/identity.js",
+    "keywords": [
+        "identity"
+    ],
+    "authors": [
+        "Scott Florisson"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests",
+        "source",
+        ".bowerrc",
+        ".gitignore",
+        ".jshintignore",
+        ".jshintrc",
+        "bower.json",
+        "gulpfile.js",
+        "package.json",
+        "README.md"
+    ]
+}
