@@ -73,17 +73,19 @@ declare namespace webngen.identity.services {
     class IdentityDiscoveryService implements IIdentityDiscoveryService {
         private $http;
         private $q;
-        private config;
         static $inject: string[];
         private static RelationTokens;
         private _discoveryResource;
-        constructor($http: ng.IHttpService, $q: ng.IQService, config: models.IdentityConfig);
+        private _config;
+        constructor($http: ng.IHttpService, $q: ng.IQService);
         private Discover;
         TokenUri: angular.IPromise<string>;
         private FindLinkUrl;
+        Configure: (config: models.IdentityConfig) => void;
     }
     interface IIdentityDiscoveryService {
         TokenUri: ng.IPromise<string>;
+        Configure(options: models.IdentityConfig): any;
     }
 }
 declare var mod: ng.IModule;

@@ -5,7 +5,7 @@ namespace webngen.identity.services {
         static $inject = ['$http', '$q', ''];
         private static RelationTokens = "tokens";
         private _discoveryResource: webngen.identity.models.IdentityDiscoveryResource;
-        private _config: models.IdentityConfig = { identityApi="https://api.webngen.net/identity" };
+        private _config: models.IdentityConfig = { identityApi: "https://api.webngen.net/identity" };
 
         constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
 

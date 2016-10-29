@@ -103,11 +103,11 @@ var webngen;
         var services;
         (function (services) {
             var IdentityDiscoveryService = (function () {
-                function IdentityDiscoveryService($http, $q, config) {
+                function IdentityDiscoveryService($http, $q) {
                     var _this = this;
                     this.$http = $http;
                     this.$q = $q;
-                    this.config = config;
+                    this._config = { identityApi: "https://api.webngen.net/identity" };
                     this.Discover = function () {
                         var deferred = _this.$q.defer();
                         var self = _this;
@@ -135,6 +135,9 @@ var webngen;
                                 deferred.resolve(link.Uri);
                         });
                         return deferred.promise;
+                    };
+                    this.Configure = function (config) {
+                        _this._config = config;
                     };
                 }
                 Object.defineProperty(IdentityDiscoveryService.prototype, "TokenUri", {
