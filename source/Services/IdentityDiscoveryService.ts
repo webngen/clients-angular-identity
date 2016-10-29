@@ -20,7 +20,7 @@ namespace webngen.identity.services {
             else
                 this.$http({
                     method: "GET",
-                    url: "/api/identity"
+                    url: this._config.identityApi
                 }).then((xhr) => {
                     self._discoveryResource = <webngen.identity.models.IdentityDiscoveryResource>xhr.data;
                     deferred.resolve(self._discoveryResource);

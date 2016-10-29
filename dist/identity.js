@@ -116,7 +116,7 @@ var webngen;
                         else
                             _this.$http({
                                 method: "GET",
-                                url: "/api/identity"
+                                url: _this._config.identityApi
                             }).then(function (xhr) {
                                 self._discoveryResource = xhr.data;
                                 deferred.resolve(self._discoveryResource);
