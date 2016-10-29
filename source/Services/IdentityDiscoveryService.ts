@@ -2,7 +2,7 @@
 namespace webngen.identity.services {
 
     export class IdentityDiscoveryService implements IIdentityDiscoveryService {
-        static $inject = ['$http', '$q', ''];
+        static $inject = ['$http', '$q'];
         private static RelationTokens = "tokens";
         private _discoveryResource: webngen.identity.models.IdentityDiscoveryResource;
         private _config: models.IdentityConfig = { identityApi: "https://api.webngen.net/identity" };

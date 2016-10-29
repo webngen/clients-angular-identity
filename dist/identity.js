@@ -147,7 +147,7 @@ var webngen;
                     enumerable: true,
                     configurable: true
                 });
-                IdentityDiscoveryService.$inject = ['$http', '$q', ''];
+                IdentityDiscoveryService.$inject = ['$http', '$q'];
                 IdentityDiscoveryService.RelationTokens = "tokens";
                 return IdentityDiscoveryService;
             }());
