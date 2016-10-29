@@ -2,7 +2,7 @@
 namespace webngen.identity.services {
 
     export class AuthenticationService implements IAuthenticationService {
-        static $inject = ['$http', '$q', '$rootScope', 'IdentityDiscoveryService'];
+        static $inject = ['$http', '$q', '$rootScope', 'webngenIdDiscoService'];
 
         constructor(private $http: ng.IHttpService, private $q: ng.IQService, private $rootScope: ng.IRootScopeService, private discoSvc: IIdentityDiscoveryService) {
         }
