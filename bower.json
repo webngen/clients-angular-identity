@@ -9,8 +9,12 @@
     "authors": [
         "Scott Florisson"
     ],
+    "dependencies": {
+        "jquery": "^3.1.1",
+        "angular": "^1.5.8"
+    },
     "license": "MIT",
-    "private": true,
+    "private": false,
     "ignore": [
         "**/.*",
         "node_modules",
