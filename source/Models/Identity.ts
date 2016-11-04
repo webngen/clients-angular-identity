@@ -1,6 +1,6 @@
 ﻿
 namespace webngen.identity.models {
-    export interface IIdentity{
+    export interface IIdentity {
         Firstname: string;
         Surname: string;
         Username: string;
@@ -8,7 +8,7 @@ namespace webngen.identity.models {
         Roles: Array<string>;
     }
     export interface Claim {
-        Name: string;
+        Type: string;
         Value: string;
     }
     export class ClaimTypes {

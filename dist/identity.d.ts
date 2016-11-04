@@ -2,6 +2,11 @@
 /// <reference path="../source/models/index.d.ts" />
 /// <reference path="../source/services/index.d.ts" />
 declare namespace webngen.identity.models {
+    interface IdentityConfig {
+        identityApi: string;
+    }
+}
+declare namespace webngen.identity.models {
     interface IIdentity {
         Firstname: string;
         Surname: string;
@@ -10,7 +15,7 @@ declare namespace webngen.identity.models {
         Roles: Array<string>;
     }
     interface Claim {
-        Name: string;
+        Type: string;
         Value: string;
     }
     class ClaimTypes {
@@ -42,11 +47,6 @@ declare namespace webngen.identity.models {
         AccessToken: string;
         Expires: string;
         TokenType: string;
-    }
-}
-declare namespace webngen.identity.models {
-    interface IdentityConfig {
-        identityApi: string;
     }
 }
 declare namespace webngen.identity.services {
