@@ -1,6 +1,6 @@
 ﻿
-namespace webngen.identity.models {
+namespace Webngen.Identity.Models {
     export interface Resource {
-        Links: Array<Link>;
+        links: Array<Link>;
     }
 }

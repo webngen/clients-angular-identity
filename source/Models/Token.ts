@@ -1,8 +1,8 @@
 ﻿
-namespace webngen.identity.models {
+namespace Webngen.Identity.Models {
     export interface Token{
-        AccessToken: string;
-        Expires: string;
-        TokenType: string;
+        accessToken: string;
+        expires: string;
+        tokenType: string;
     }
 }

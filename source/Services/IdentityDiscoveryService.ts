@@ -1,17 +1,17 @@
 ﻿
-namespace webngen.identity.services {
+namespace Webngen.Identity.Services {
 
     export class IdentityDiscoveryService implements IIdentityDiscoveryService {
         static $inject = ['$http', '$q'];
         private static RelationTokens = "tokens";
-        private _discoveryResource: webngen.identity.models.IdentityDiscoveryResource;
-        private _config: models.IdentityConfig = { identityApi: "https://api.webngen.net/identity" };
+        private _discoveryResource: Webngen.Identity.Models.IdentityDiscoveryResource;
+        private _config: Models.IdentityConfig = { identityApi: "https://api.webngen.net/identity" };
 
         constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
 
         }
 
-        private Discover = (): ng.IPromise<webngen.identity.models.IdentityDiscoveryResource> => {
+        private Discover = (): ng.IPromise<Webngen.Identity.Models.IdentityDiscoveryResource> => {
             var deferred = this.$q.defer();
             var self = this;
 
@@ -22,7 +22,7 @@ namespace webngen.identity.services {
                     method: "GET",
                     url: this._config.identityApi
                 }).then((xhr) => {
-                    self._discoveryResource = <webngen.identity.models.IdentityDiscoveryResource>xhr.data;
+                    self._discoveryResource = <Webngen.Identity.Models.IdentityDiscoveryResource>xhr.data;
                     deferred.resolve(self._discoveryResource);
                 }).catch((e) => {
                     deferred.reject(e);
@@ -39,23 +39,23 @@ namespace webngen.identity.services {
             var deferred = this.$q.defer();
 
             this.Discover().then((disco) => {
-                var link = $.grep(disco.Links, (link) => link.Rel === rel)[0];
+                var link = $.grep(disco.links, (link) => link.rel === rel)[0];
                 if (link == null)
                     deferred.reject("Link Not found");
                 else
-                    deferred.resolve(link.Uri);
+                    deferred.resolve(link.uri);
             });
 
             return deferred.promise;
         }
 
-        public Configure = (config: models.IdentityConfig) => {
+        public Configure = (config: Models.IdentityConfig) => {
             this._config = config;
         }
     }
 
     export interface IIdentityDiscoveryService {
         TokenUri: ng.IPromise<string>;
-        Configure(options: models.IdentityConfig);
+        Configure(options: Models.IdentityConfig);
     }
 }

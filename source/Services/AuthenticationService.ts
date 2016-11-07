@@ -1,5 +1,5 @@
 ﻿
-namespace webngen.identity.services {
+namespace Webngen.Identity.Services {
 
     export class AuthenticationService implements IAuthenticationService {
         static $inject = ['$http', '$q', '$rootScope', 'webngenIdDiscoService'];
@@ -29,9 +29,9 @@ namespace webngen.identity.services {
         public Authenticate(username: string, password: string): angular.IPromise<any> {
             var deferred = this.$q.defer();
 
-            this.CreateToken(username, password).then((token: webngen.identity.models.Token) => {
+            this.CreateToken(username, password).then((token: Webngen.Identity.Models.Token) => {
                 //store token in session
-                sessionStorage.setItem("authToken", token.AccessToken);
+                sessionStorage.setItem("authToken", token.accessToken);
                 //broadcast authenticate event on event bus
                 this.$rootScope.$broadcast(Constants.Events.LoggedIn, this.CreateIdentity(token));
 
@@ -53,25 +53,25 @@ namespace webngen.identity.services {
             return deferred.promise;
         }
 
-        private CreateIdentity = (token: webngen.identity.models.Token): webngen.identity.models.IIdentity => {
-            var princ = JSON.parse(atob(token.AccessToken.split(".")[1]));
+        private CreateIdentity = (token: Webngen.Identity.Models.Token): Webngen.Identity.Models.IIdentity => {
+            var princ = JSON.parse(atob(token.accessToken.split(".")[1]));
             return {
-                Firstname: this.FindClaimValue(princ.Claims, webngen.identity.models.ClaimTypes.GivenName),
-                Surname: this.FindClaimValue(princ.Claims, webngen.identity.models.ClaimTypes.Surname),
-                Username: this.FindClaimValue(princ.Claims, webngen.identity.models.ClaimTypes.NameIdentifier),
-                Email: this.FindClaimValue(princ.Claims, webngen.identity.models.ClaimTypes.Email),
-                Roles: this.FindAllClaimValues(princ.Claims, webngen.identity.models.ClaimTypes.Role)
+                firstname: this.FindClaimValue(princ.Claims, Webngen.Identity.Models.ClaimTypes.GivenName),
+                surname: this.FindClaimValue(princ.Claims, Webngen.Identity.Models.ClaimTypes.Surname),
+                username: this.FindClaimValue(princ.Claims, Webngen.Identity.Models.ClaimTypes.NameIdentifier),
+                email: this.FindClaimValue(princ.Claims, Webngen.Identity.Models.ClaimTypes.Email),
+                roles: this.FindAllClaimValues(princ.Claims, Webngen.Identity.Models.ClaimTypes.Role)
             };
         }
 
-        private FindClaimValue = (claims: Array<webngen.identity.models.Claim>, name: string): string => {
-            var claim = $.grep(claims, (c) => c.Name == name)[0];
-            if (claim) return claim.Value;
+        private FindClaimValue = (claims: Array<Webngen.Identity.Models.Claim>, name: string): string => {
+            var claim = $.grep(claims, (c) => c.type == name)[0];
+            if (claim) return claim.value;
             return null;
         }
-        private FindAllClaimValues = (claims: Array<webngen.identity.models.Claim>, name: string): Array<string> => {
-            var matching = $.grep(claims, (c) => c.Name == name);
-            return $.map(matching, (c) => c.Value);
+        private FindAllClaimValues = (claims: Array<Webngen.Identity.Models.Claim>, name: string): Array<string> => {
+            var matching = $.grep(claims, (c) => c.type == name);
+            return $.map(matching, (c) => c.value);
         }
     }
 

@@ -1,22 +1,22 @@
 /// <reference path="../typings/index.d.ts" />
 /// <reference path="../source/models/index.d.ts" />
 /// <reference path="../source/services/index.d.ts" />
-declare namespace webngen.identity.models {
+declare namespace Webngen.Identity.Models {
     interface IdentityConfig {
         identityApi: string;
     }
 }
-declare namespace webngen.identity.models {
+declare namespace Webngen.Identity.Models {
     interface IIdentity {
-        Firstname: string;
-        Surname: string;
-        Username: string;
-        Email: string;
-        Roles: Array<string>;
+        firstname: string;
+        surname: string;
+        username: string;
+        email: string;
+        roles: Array<string>;
     }
     interface Claim {
-        Type: string;
-        Value: string;
+        type: string;
+        value: string;
     }
     class ClaimTypes {
         static GivenName: string;
@@ -26,30 +26,30 @@ declare namespace webngen.identity.models {
         static Role: string;
     }
 }
-declare namespace webngen.identity.models {
+declare namespace Webngen.Identity.Models {
     interface IdentityDiscoveryResource extends Resource {
     }
 }
-declare namespace webngen.identity.models {
+declare namespace Webngen.Identity.Models {
     interface Link {
-        Uri: string;
-        Rel: string;
-        MediaType: string;
+        uri: string;
+        rel: string;
+        mediaType: string;
     }
 }
-declare namespace webngen.identity.models {
+declare namespace Webngen.Identity.Models {
     interface Resource {
-        Links: Array<Link>;
+        links: Array<Link>;
     }
 }
-declare namespace webngen.identity.models {
+declare namespace Webngen.Identity.Models {
     interface Token {
-        AccessToken: string;
-        Expires: string;
-        TokenType: string;
+        accessToken: string;
+        expires: string;
+        tokenType: string;
     }
 }
-declare namespace webngen.identity.services {
+declare namespace Webngen.Identity.Services {
     class AuthenticationService implements IAuthenticationService {
         private $http;
         private $q;
@@ -69,7 +69,7 @@ declare namespace webngen.identity.services {
         SignOut(): ng.IPromise<any>;
     }
 }
-declare namespace webngen.identity.services {
+declare namespace Webngen.Identity.Services {
     class IdentityDiscoveryService implements IIdentityDiscoveryService {
         private $http;
         private $q;
@@ -81,15 +81,15 @@ declare namespace webngen.identity.services {
         private Discover;
         TokenUri: angular.IPromise<string>;
         private FindLinkUrl;
-        Configure: (config: models.IdentityConfig) => void;
+        Configure: (config: Models.IdentityConfig) => void;
     }
     interface IIdentityDiscoveryService {
         TokenUri: ng.IPromise<string>;
-        Configure(options: models.IdentityConfig): any;
+        Configure(options: Models.IdentityConfig): any;
     }
 }
 declare var mod: ng.IModule;
-declare namespace webngen.identity {
+declare namespace Webngen.Identity {
     class Bootstrapper {
         init(): void;
     }

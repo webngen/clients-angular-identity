@@ -1,15 +1,15 @@
 ﻿
-namespace webngen.identity.models {
+namespace Webngen.Identity.Models {
     export interface IIdentity {
-        Firstname: string;
-        Surname: string;
-        Username: string;
-        Email: string;
-        Roles: Array<string>;
+        firstname: string;
+        surname: string;
+        username: string;
+        email: string;
+        roles: Array<string>;
     }
     export interface Claim {
-        Type: string;
-        Value: string;
+        type: string;
+        value: string;
     }
     export class ClaimTypes {
         public static GivenName = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname";

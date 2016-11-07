@@ -4,7 +4,7 @@
 
 var mod: ng.IModule;
 
-namespace webngen.identity {
+namespace Webngen.Identity {
     export class Bootstrapper {
         public init() {
 
@@ -15,8 +15,8 @@ namespace webngen.identity {
             //};
             //mod.constant('appConfig', cfg);
 
-            mod.service('webngenIdAuthService', services.AuthenticationService);
-            mod.service('webngenIdDiscoService', services.IdentityDiscoveryService);
+            mod.service('webngenIdAuthService', Services.AuthenticationService);
+            mod.service('webngenIdDiscoService', Services.IdentityDiscoveryService);
 
         }
     }
@@ -29,4 +29,4 @@ namespace webngen.identity {
     }
 }
 
-new webngen.identity.Bootstrapper().init();
+new Webngen.Identity.Bootstrapper().init();

@@ -1,8 +1,8 @@
 ﻿
-namespace webngen.identity.models {
+namespace Webngen.Identity.Models {
     export interface Link {
-        Uri: string;
-        Rel: string;
-        MediaType: string;
+        uri: string;
+        rel: string;
+        mediaType: string;
     }
 }

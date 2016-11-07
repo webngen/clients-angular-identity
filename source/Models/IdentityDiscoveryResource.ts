@@ -1,5 +1,5 @@
 ﻿
-namespace webngen.identity.models {
+namespace Webngen.Identity.Models {
     export interface IdentityDiscoveryResource extends Resource{
     }
 }
